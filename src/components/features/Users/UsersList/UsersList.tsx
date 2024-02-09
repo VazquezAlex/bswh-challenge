@@ -1,11 +1,12 @@
 // Core imports.
 import React from 'react';
-import {SectionList, Text, View} from 'react-native';
+import {SectionList, View} from 'react-native';
 
 // Local imports.
 import useUsersList from './useUsersList';
 import {UserItem} from '../UserItem';
 import {ListSeparator} from '../../../shared/ListSeparator';
+import {AlbumItem} from '../../Albums/AlbumItem';
 
 const UsersList = (): JSX.Element => {
     const {users} = useUsersList();
@@ -15,11 +16,7 @@ const UsersList = (): JSX.Element => {
             <SectionList
                 sections={users}
                 keyExtractor={item => item.id}
-                renderItem={({item}) => (
-                    <View>
-                        <Text>{item.title}!!!!!!</Text>
-                    </View>
-                )}
+                renderItem={({item}) => <AlbumItem item={item} />}
                 renderSectionHeader={({section: {title}}) => (
                     <UserItem name={title} />
                 )}
