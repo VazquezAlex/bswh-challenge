@@ -1,6 +1,6 @@
 // Core imports.
 import React from 'react';
-import {SafeAreaView} from 'react-native';
+import {SafeAreaView, StyleSheet} from 'react-native';
 
 // Third-party imports,
 import {NavigationContainer} from '@react-navigation/native';
@@ -14,14 +14,20 @@ const Stack = createStackNavigator();
 
 const App = (): JSX.Element => {
     return (
-        <SafeAreaView style={{flex:1}}>
+        <SafeAreaView style={styles.container}>
             <NavigationContainer>
                 <Stack.Navigator>
-                    <Stack.Screen name="Home" component={UserPage} />
+                    <Stack.Screen name="Users" component={UserPage} />
                 </Stack.Navigator>
             </NavigationContainer>
         </SafeAreaView>
     );
 };
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+    },
+});
 
 export default App;
